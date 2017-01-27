@@ -12,12 +12,17 @@ import spark.template.mustache.MustacheTemplateEngine;
 
 public class App
 {
-    public static boolean search(ArrayList<Integer> array, int e) {
+    public static boolean search(ArrayList<Integer> array, int e, int f) {
       System.out.println("inside search");
       if (array == null) return false;
-
+      if (e > f) {
+	max = e;
+      }
+      else{
+        max = f ;
+     }
       for (int elt : array) {
-        if (elt == e) return true;
+        if (elt == max) return true;
       }
       return false;
     }
@@ -47,8 +52,8 @@ public class App
           int input2AsInt = Integer.parseInt(input2);
           String input3 = req.queryParams("input3").replaceAll("\\s","");
           int input3AsInt = Integer.parseInt(input3);
-	
-          boolean result = App.search(inputList, input2AsInt);
+
+          boolean result = App.search(inputList, input2AsInt, input3AsInt);
 
           Map map = new HashMap();
           map.put("result", result);
