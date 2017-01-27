@@ -14,7 +14,7 @@ public class App
 {
     public static boolean search(ArrayList<Integer> array, int e, int f) {
       System.out.println("inside search");
-      int max = Integer.NEGATIVE_INFINITY;
+      int max = 0;
       if (array == null) return false;
       if (e >= f) {
 	max = e;
